@@ -34,6 +34,14 @@ async function saveQuizAsync(quiz) {
     }
   });
 
+  const list = quizzes.map((quiz) => {
+    return {
+      id: quiz.id,
+
+      name: quiz.name.toUpperCase(),
+    };
+  });
+
   const id = await db.saveQuiz(quiz);
   return id;
 }
